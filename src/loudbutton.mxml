@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	applicationComplete="initApp()"
+	layout="absolute" backgroundAlpha="0">
+	<mx:Script>
+	<![CDATA[
+		import com.loudbash.Player;
+
+		internal var player:Player;
+
+		private function onComplete():void {
+			playButton.source = getImage();
+		}
+
+		private function initApp():void {
+			var mp3File:String = Application.application.parameters.mp3File;
+			if (mp3File == null)
+				mp3File = "music.mp3"
+			var autoplay:Boolean = Application.application.parameters.autoplay == "true" ? true : false;
+			var repeat:Boolean = Application.application.parameters.repeat == "true" ? true : false;
+			player = new Player(mp3File, autoplay, repeat);
+			player.registerOnComplete(onComplete);
+			playButton.source = getImage();
+		}
+
+		[Embed(source="../assets/play.gif")]
+		private var playImage:Class;
+		[Embed(source="../assets/playHover.gif")]
+		private var playHoverImage:Class;
+		[Embed(source="../assets/pause.gif")]
+		private var pauseImage:Class;
+		[Embed(source="../assets/pauseHover.gif")]
+		private var pauseHoverImage:Class;
+
+		private function getImage():Class {
+			return player.playing ? pauseImage : playImage;
+		}
+
+		private function getImageHover():Class {
+			return player.playing ? pauseHoverImage : playHoverImage;
+		}
+
+		private function togglePlay():void {
+			player.togglePlay();
+			playButton.source = getImage();
+		}
+
+		private function mouseOver():void {
+			playButton.source = getImageHover();
+		}
+
+		private function mouseOut():void {
+			playButton.source = getImage();			
+		}
+	]]>
+	</mx:Script>
+	<mx:VBox>
+		
+	<mx:Image id="playButton" buttonMode="true" 
+		click="togglePlay();" mouseOver="mouseOver()" mouseOut="mouseOut()" 
+		width="17" height="17" />
+	</mx:VBox>
+</mx:Application>

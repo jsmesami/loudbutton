@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>loudbutton example usage</title>
+
+    <script src="loudbutton/swfobject.js"></script>
+</head>
+
+<body>
+<div id="loudbutton">
+    <p><a href="http://www.adobe.com/go/getflash">Adobe Flash Player</a> not found</p>
+</div>
+<script>
+    window.onload = function() {
+        var flashvars = {
+            mp3File: "media/boing.mp3",
+            autoplay: "true",
+            repeat: "false"
+        };
+        swfobject.embedSWF("loudbutton/loudbutton.swf", "loudbutton", "17", "17", "9.0.0", null, flashvars);
+    };
+</script>
+</body>
+</html>
