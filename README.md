@@ -1,7 +1,7 @@
 Loud Button
 ===========
 
-Another Flash button that can play annoying music on your website.
+Another Flash button that can load and play annoying music on your website.
 
 Why?
 ----
@@ -27,27 +27,30 @@ Usage
 -----
 
 Embed the `loudbutton.swf` in your markup - I use the glorious [swfobject](http://code.google.com/p/swfobject/) 
-to get it right, see the `example/index.html`. 
+to get it right. See the `example/index.html`.
 
 Player can be fed with some flashvars:
 
 * mp3File: "path/to/file.mp3", _(defaults to ./music.mp3)_
-* autoplay: "true|false", _(play immediately? defaults to false)_
-* repeat: "true|false" _(repeat until doom? defaults to false)_
+* autoplay: "true | false", _(play immediately? defaults to false)_
+* repeat: "true | false" _(repeat until doom? defaults to false)_
 
 Again, peek into the `example/index.html` for example usage.
 
-Note that button size and appearance are hardcoded to keep things simple and
+Note that button size and appearance are hardcoded to keep everything simple and
 small. If you need to change it, you can rewrite the assets with your own graphics, 
-update the size values at the very bottom of `src/loudbutton.mxml` and recompile.
+update the dimension variables at the very bottom of `src/loudbutton.mxml` and recompile.
 
-Acknowledgements
-----------------
+Notice
+------
 
-I am __not__ a Flex programmer, I just figure things out to scratch my itch. If you 
-happen to be an AS3 guru, you might find things I could have done better, but it 
-works smoothly and I tried to follof general best coding practices learnt from other 
-languages. It's a small piece of code, there are not many things to screw up here:)
+I am __not__ a Flex developer, I simply like to figure things out to scratch my itch.
+If you happen to be an AS3 guru, you might find some of my code laughable, but it works
+smoothly and I tried my best to follow general best coding practices learnt from other
+languages.
+
+Acknowledgments
+---------------
 
 Example sound `boing.mp3` was recorded by [Nik Paget-Tomlinson](http://www.nikpt.co.uk/), 
 and released under [Creative Commons Attribution License](http://creativecommons.org/licenses/by/3.0/legalcode)
